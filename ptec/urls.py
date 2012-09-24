@@ -1,17 +1,20 @@
 from django.conf.urls import patterns, include, url
+from django.views.generic import list_detail
+from tareas.models import Tarea
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
+tarea_info = {
+    'queryset': Tarea.objects.all(),
+    }
+
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'ptec.views.home', name='home'),
-    # url(r'^ptec/', include('ptec.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-)
+                       url(r'^admin/', include(admin.site.urls)),
+                       (r'^tareas/$', list_detail.object_list, tarea_info),
+                       (r'^tareas/crear/?$', 
+                        'django.views.generic.create_update.create_object',
+                        dict(model=Tarea,post_save_redirect="/tareas/") ),
+                       
+                       )

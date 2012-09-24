@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for tarea in object_list %}
+<ul>
+  <li>{{ tarea }}</li>
+</ul>
+{% endfor %}
+{% endblock %}

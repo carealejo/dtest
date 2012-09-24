@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="." method="post">{% csrf_token %}
+  <p>{{ form.nombre.label_tag }}:{{ form.nombre }}</p>
+  <p>{{ form.fechaini.label_tag }}:{{ form.fechaini }}</p>
+  <p>{{ form.fechafin }}</p>
+  <p>{{ form.descripcion }}</p>
+  <p>{{ form.estado }}</p>
+  <p>{{ form.usuario }}</p>
+  <input type="submit" />
+</form>
+{% endblock %}
