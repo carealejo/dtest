@@ -12,7 +12,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-LOCAL_DEV=True
+LOCAL_DEV=False
 
 if not LOCAL_DEV:
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
