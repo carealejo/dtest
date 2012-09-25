@@ -11,19 +11,21 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+LOCAL=True
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#         'NAME': 'tareasbd',                      # Or path to database file if using sqlite3.
-#         'USER': '',                      # Not used with sqlite3.
-#         'PASSWORD': '',                  # Not used with sqlite3.
-#         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-#         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-#     }
-# }
+if not LOCAL:
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'tareasbd',                      # Or path to database file if using sqlite3.
+            'USER': '',                      # Not used with sqlite3.
+            'PASSWORD': '',                  # Not used with sqlite3.
+            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+            }
+        }
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -68,16 +70,21 @@ STATIC_ROOT = ''
 STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    #'/home/alejandro/work/PS/PruTecnica/ptec/tareas/static',
-    #'/home/farhat/work/nuevosmedios/dtest/tareas/static',
-    '/app/tareas/static',
 
-)
-
+if not LOCAL:
+    STATICFILES_DIRS = (
+        # Put strings here, like "/home/html/static" or "C:/www/django/static".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
+        #'/home/alejandro/work/PS/PruTecnica/ptec/tareas/static',
+        #'/home/farhat/work/nuevosmedios/dtest/tareas/static',
+        '/app/tareas/static',
+        )
+else:
+    STATICFILES_DIRS = (
+        '/home/farhat/work/nuevosmedios/dtest/tareas/static',
+        )
+    
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -111,14 +118,19 @@ ROOT_URLCONF = 'ptec.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'ptec.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    #'/home/alejandro/work/PS/PruTecnica/ptec/ptec/templates',
-    '/app/ptec/templates',
-    #'/home/farhat/work/nuevosmedios/dtest/ptec/templates',
-)
+if not LOCAL:
+    TEMPLATE_DIRS = (
+        # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+        # Always use forward slashes, even on Windows.
+        # Don't forget to use absolute paths, not relative paths.
+        #'/home/alejandro/work/PS/PruTecnica/ptec/ptec/templates',
+        '/app/ptec/templates',
+        #'/home/farhat/work/nuevosmedios/dtest/ptec/templates',
+        )
+else:
+    TEMPLATE_DIRS = (
+        '/home/farhat/work/nuevosmedios/dtest/ptec/templates',
+        )
 
 INSTALLED_APPS = (
     'django.contrib.auth',

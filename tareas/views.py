@@ -5,7 +5,6 @@ from django.utils.decorators import method_decorator
 from django.views.generic.edit import ModelFormMixin
 from django.contrib import messages
 
-
 from tareas.models import Tarea
 
 class LoginRequiredMixin(object):
@@ -19,10 +18,10 @@ class TareaMixin(LoginRequiredMixin):
     def get_success_url(self):
         return reverse('tarea_list')
 
-    def form_valid(self, form):
-        messages.success(self.request, "Tarea guardada exitosamente",
-                         extra_tags='success')
-        return super(ModelFormMixin, self).form_valid(form)
+    # def form_valid(self, form):
+    #     messages.success(self.request, "Tarea guardada exitosamente",
+    #                      extra_tags='success')
+    #     return super(ModelFormMixin, self).form_valid(form)
 
 class TareaListView(TareaMixin, ListView):
     paginate_by = 5
