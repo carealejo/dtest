@@ -1,4 +1,5 @@
 import dj_database_url
+import os
 
 # Django settings for ptec project.
 
@@ -10,10 +11,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-LOCAL=True
-
-if not LOCAL:
+if not bool(os.environ.get('LOCAL_DEV', True)):
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 else:
     DATABASES = {
@@ -71,7 +69,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 
-if not LOCAL:
+if not bool(os.environ.get('LOCAL_DEV', False)):
     STATICFILES_DIRS = (
         # Put strings here, like "/home/html/static" or "C:/www/django/static".
         # Always use forward slashes, even on Windows.
@@ -118,7 +116,7 @@ ROOT_URLCONF = 'ptec.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'ptec.wsgi.application'
 
-if not LOCAL:
+if not bool(os.environ.get('LOCAL_DEV', True)):
     TEMPLATE_DIRS = (
         # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
         # Always use forward slashes, even on Windows.
@@ -131,7 +129,7 @@ else:
     TEMPLATE_DIRS = (
         '/home/farhat/work/nuevosmedios/dtest/ptec/templates',
         )
-
+    
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
