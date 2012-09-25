@@ -8,8 +8,7 @@
 <p>Estado : {{ object.estado }}</p>
 <p>Usuario asignado : {{ object.usuario }}</p>
 
+<a href={% url tarea_update object.pk %}>Modificar</a>
 <a href={% url tarea_delete object.pk %}>Eliminar</a>
-
-
 
 {% endblock %}
