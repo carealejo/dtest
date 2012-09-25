@@ -3,6 +3,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
+from django.core.urlresolvers import reverse
+from django import forms
 
 Estado_Tareas = (
     ('Fin', 'Finalizada'),
@@ -19,7 +21,7 @@ class Tarea(models.Model):
     usuario = models.ForeignKey(User)
 
     def get_absolute_url(self):
-        return '/tareas/detalle/'+str(self.pk)
+        return reverse('tarea_detail', args=[self.pk])
     
     def __unicode__(self):
         return self.nombre
@@ -27,4 +29,3 @@ class Tarea(models.Model):
 class TareaAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Tarea, TareaAdmin)
-    

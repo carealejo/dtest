@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 {% block navigation %}
-{{ STATIC_URL }} img/
 {% endblock %}
 {% block content %}
 <h1>Tareas :: lista</h1>
 {% for object in object_list %}
 <ul>
-  <li><a href="{{ object.get_absolute_url }}"> {{ object }}</a></li>
+  <li><a href="{{ object.get_absolute_url }}">{{ object }}</a></li>
 </ul>
 {% endfor %}
 {% endblock %}
