@@ -1,166 +1,274 @@
 /* A Free Design by Bryant Smith (bryantsmith.com) */
 
 html, body {
-text-align: center;
+    text-align: center;
 }
 p {text-align: left;}
 
 body {
-	margin: 0;
-	padding: 0;
-	background: #FFFFFF;
-	background-image:url(../img/background.png);
-	text-align: left;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size: 13px;
-	color: #000000;
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    background-image:url(../img/background.png);
+    text-align: left;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #000000;
 }
 *
 {
-  margin: 0 auto 0 auto;
- text-align:left;}
+    margin: 0 auto 0 auto;
+    text-align:left;}
 
 p {text-align: left;}
 
 #page
 {
-  width:581px;
+    width:581px;
 }
 
 #header
 {
-width:581px;
-height:90px;
-background-image:url(../img/header.png);
-clear:both;
+    width:581px;
+    height:90px;
+    background-image:url(../img/header.png);
+    clear:both;
 }
 
 #header img
 {
-display:block;
-margin:0 auto 0 auto;
-padding-top:40px;
+    display:block;
+    margin:0 auto 0 auto;
+    padding-top:40px;
 }
 
 
 #content
 {
-background-image:url(../img/content_back_shadow.png);
-background-repeat:repeat-y;
-width:581px;
+    background-image:url(../img/content_back_shadow.png);
+    background-repeat:repeat-y;
+    width:581px;
 }
 
 #content #container
 {
-float:left;
-background-image:url(../img/gradient_rectangle_back.png);
-background-repeat:repeat-x;
-background-color:#4586F1;
-width:547px;
-margin-left:14px;
-clear:both;
+    float:left;
+    background-image:url(../img/gradient_rectangle_back.png);
+    background-repeat:repeat-x;
+    background-color:#4586F1;
+    width:547px;
+    margin-left:14px;
+    clear:both;
 }
 
 #menu
 {
-background-image:url(../img/menu_background.png);
-height:54px;
-width:527px;
+    background-image:url(../img/menu_background.png);
+    height:54px;
+    width:527px;
 }
 
 #menu ul {
-	padding: 0px;
-	list-style-type: none;
-	text-align:center;
-	height:40px;
+    padding: 0px;
+    list-style-type: none;
+    text-align:center;
+    height:40px;
 
 }
 #menu ul li , #menu ul li a, #menu ul li a:visited{
-	display:block;
-	float:right;
-	margin: 0px;
-	text-align:left;
-	line-height:40px;
-	color:#FFFFFF;
-	padding-left:6px;
-	padding-right:2px;
-	font-size:14px;
-	font-weight:bold;
-	text-decoration:none;
-	width:77px;
+    display:block;
+    float:right;
+    margin: 0px;
+    text-align:left;
+    line-height:40px;
+    color:#FFFFFF;
+    padding-left:6px;
+    padding-right:2px;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    width:77px;
 }
 
 
 #menu ul li a:hover{
-color:#65A9ED;
+    color:#65A9ED;
 }
 
 #content #main
 {
-display:block;
-width:527px;
-clear:both
+    display:block;
+    width:527px;
+    clear:both
 }
 
 #content #text
 {
-margin:0;
-padding:0;
-width:497px;
-display:block;
-background-color:#FFFFFF;
-float:left;
-min-height:400px;
-clear:both;
-padding-left:15px;
-padding-right:15px;
+    margin:0;
+    padding:0;
+    width:497px;
+    display:block;
+    background-color:#FFFFFF;
+    float:left;
+    min-height:400px;
+    clear:both;
+    padding-left:15px;
+    padding-right:15px;
 }
 
 .clear {
     clear:both;
-  }
+}
 
 
 #content #text h1, #content #text h1 a, #content #text h1 a:visited
 {
-margin:0;
-padding:0;
-color:#093175;
-font-size:24px;
-margin-bottom:7px;
-margin-top:7px;
+    margin:0;
+    padding:0;
+    color:#093175;
+    font-size:24px;
+    margin-bottom:7px;
+    margin-top:7px;
 }
 
 #content #text p
 {
-margin-top:5px;
-margin-bottom:5px;
-padding:0;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding:0;
 }
 
 
 #footer
 {
-background-image:url(../img/footer.png);
-background-repeat:no-repeat;
-width:581px;
-height:60px;
-font-size:11px;
-color:#C5DDFA;
-text-align:right;
+    background-image:url(../img/footer.png);
+    background-repeat:no-repeat;
+    width:581px;
+    height:60px;
+    font-size:11px;
+    color:#C5DDFA;
+    text-align:right;
 }
 
 #footer p
 {
-text-align:center;
-padding-top:20px;
+    text-align:center;
+    padding-top:20px;
 }
 
 #footer a, #footer a:visited
 {
-font-size:11px;
-color:#C5DDFA;
-text-decoration:none;
+    font-size:11px;
+    color:#C5DDFA;
+    text-decoration:none;
 }
 
+.info, .success, .warning, .error, .validation {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.info {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('../img/info.png');
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('../img/success.png');
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('../img/warning.png');
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('../img/error.png');
+}
 
+.validation {
+    color: #D63301;
+    background-color: #FFCCBA;
+    background-image: url('../img/validation.png');
+}
+
+.alignleft {
+    float: left;
+}
+.alignright {
+    float: right;
+}
+
+label
+{
+    width: 12em;
+    float: left;
+    text-align: right;
+    margin-right: 0.5em;
+    display: block
+}
+
+.submit input
+{
+    margin-left: 4.5em;
+} 
+input
+{
+    color: black;
+    background: #65A9ED;
+    border: 1px solid #781351
+}
+
+.submit input
+{
+    color: #000;
+    background: #ffa20f;
+    border: 2px outset #d7b9c9
+} 
+fieldset
+{
+    border: 1px solid #781351;
+    width: 20em
+}
+
+legend
+{
+    color: #fff;
+    background: #ffa20c;
+    border: 1px solid #781351;
+    padding: 2px 6px
+}
+
+.odd {
+    background-color: #65A9ED;
+}
+
+.even {
+    background-color: snow;
+}
+
+.link-style a{text-decoration:none;}
+.link-style  a:hover{font-weight:bold;}
+
+a.tooltip:hover { 
+text-decoration:none;
+} 
+
+a.tooltip span {
+display:none; 
+margin:0 0 0 10px; 
+padding:5px 5px; 
+} 
+
+a.tooltip:hover span {
+display:inline; 
+position:absolute; 
+border:1px solid #cccccc; 
+background:#ffffff; 
+color:#666666; 
+}

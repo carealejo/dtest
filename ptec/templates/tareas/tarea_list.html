@@ -1,11 +1,39 @@
 {% extends "base.html" %}
-{% block navigation %}
+{% block messages %}
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
+
 {% block content %}
-<h1>Tareas :: lista</h1>
 {% for object in object_list %}
-<ul>
+<div class="{% cycle 'odd' 'even' %}">
+<ul class="link-style">
   <li><a href="{{ object.get_absolute_url }}">{{ object }}</a></li>
 </ul>
+</div>
+
 {% endfor %}
+{% if is_paginated %}
+<br />
+<hr>
+<div class="pagination">
+  <span class="page-links">
+    {% if page_obj.has_previous %}
+    <a href="/list?page={{ page_obj.previous_page_number }}">anterior | </a>
+    {% endif %}
+    <span class="page-current">
+      Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+    </span>
+    {% if page_obj.has_next %}
+    <a href="/list?page={{ page_obj.next_page_number }}"> | siguiente</a>
+    {% endif %}
+  </span>
+</div>
+{% endif %}
+
 {% endblock %}

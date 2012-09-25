@@ -1,62 +1,26 @@
-<style type="text/css">
-  label
-  {
-  width: 6em;
-  float: left;
-  text-align: right;
-  margin-right: 0.5em;
-  display: block
-  }
-
-  .submit input
-  {
-  margin-left: 4.5em;
-  } 
-  input
-  {
-  color: #781351;
-  background: #fee3ad;
-  border: 1px solid #781351
-  }
-
-  .submit input
-  {
-  color: #000;
-  background: #ffa20f;
-  border: 2px outset #d7b9c9
-  } 
-  fieldset
-  {
-  border: 1px solid #781351;
-  width: 20em
-  }
-
-  legend
-  {
-  color: #fff;
-  background: #ffa20c;
-  border: 1px solid #781351;
-  padding: 2px 6px
-  }
-</style>
-
 {% extends "base.html" %}
+{% block messages %}
+{% for message in messages %}
+<li class="{{ message.tags }}">{{ message }}</li>
+{% endfor %}
+{% endblock %}
 {% block content %}
 
-<h1>Tarea :: crear</h1>
-{{ request.get_full_path }}
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-{{ form.errors }}
-
+<h1>Complete los datos:</h1>
+{% if form.errors %}
+<div class="validation">{{ form.errors }}</div>
+{% endif %}
 <form action="." method="post">
   {% csrf_token %}
-  <p>{{ form.nombre.label_tag }}:{{ form.nombre }}</p>
-  <p>{{ form.fechaini.label_tag }}:{{ form.fechaini }}</p>
-  <p>{{ form.fechafin.label_tag }}:{{ form.fechafin }}</p>
-  <p>{{ form.descripcion.label_tag }}:{{ form.descripcion }}</p>
-  <p>{{ form.estado.label_tag }}:{{ form.estado }}</p>
-  <p>{{ form.usuario.label_tag }}:{{ form.usuario }}</p>
-  <input type="submit" />
+  <p>{{ form.nombre.label_tag }}: {{ form.nombre }}</p>
+  <p>{{ form.fechaini.label_tag }}: {{ form.fechaini }} <a href="#" class="tooltip">(?)<span>dd/mm/aaaa hh:mm:ss</span></a></p>
+  <p>{{ form.fechafin.label_tag }}: {{ form.fechafin }} <a href="#" class="tooltip">(?)<span>dd/mm/aaaa hh:mm:ss</span></a></p>
+  <p>{{ form.descripcion.label_tag }}: {{ form.descripcion }}</p>
+  <p>{{ form.estado.label_tag }}: {{ form.estado }}</p>
+  <p>{{ form.usuario.label_tag }}: {{ form.usuario }}</p>
+  <input type="submit" class="tsc_awb_medium tsc_awb_red tsc_flat" value="Guardar"/>
+<input type="button" name="cancel" value="Cancelar"
+       onclick=window.history.back() class="tsc_awb_medium tsc_awb_blue tsc_flat alignright"/>
+<div style="clear: both;"></div>
 </form>
 {% endblock %}

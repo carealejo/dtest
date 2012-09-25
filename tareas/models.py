@@ -17,7 +17,8 @@ class Tarea(models.Model):
     fechaini = models.DateTimeField('Fecha de inicio')
     fechafin = models.DateTimeField('Fecha de finalización')
     descripcion = models.CharField(max_length=500)
-    estado = models.CharField(max_length=11,choices=Estado_Tareas)
+    estado = models.CharField(max_length=11,
+                              choices=Estado_Tareas)
     usuario = models.ForeignKey(User)
 
     def get_absolute_url(self):

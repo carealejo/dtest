@@ -1,7 +1,11 @@
-<h1>Tareas :: Borrar</h1>
-¿Está seguro de querer borrar "{{ object }}"?
+{% extends "base.html" %}
+{% block content %}
+<div class="warning">¿Está seguro de querer borrar "{{ object }}"?</div>
 <form action="." method="post">
   {% csrf_token %}
-  <input type="submit" value="Sí, borrar" /> <input type="button" name="cancel" value="No, regresar"
-onclick=window.history.back() />
+  <input type="submit" value="Sí, borrar" class="tsc_awb_medium tsc_awb_red tsc_flat"/> <input type="button" name="cancel" value="Cancelar"
+onclick=window.history.back() class="tsc_awb_medium tsc_awb_blue tsc_flat alignright"/>
+<div style="clear: both;"></div>
 </form>
+
+{% endblock %}

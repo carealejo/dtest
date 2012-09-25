@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Tareas :: detalle</h1>
+<h1>Detalle de tarea</h1>
 <h2>{{ object.nombre }}</h2>
-<p>Fecha de inicio : {{ object.fechaini }}</p>
-<p>Fecha de finalización : {{ object.fechafin }}</p>
-<p>Descripción : {{ object.descripcion }}</p>
-<p>Estado : {{ object.estado }}</p>
-<p>Usuario asignado : {{ object.usuario }}</p>
-
-<a href={% url tarea_update object.pk %}>Modificar</a>
-<a href={% url tarea_delete object.pk %}>Eliminar</a>
-
+<p><strong>Fecha de inicio :</strong> {{ object.fechaini }}</p>
+<p><strong>Fecha de finalización :</strong> {{ object.fechafin }}</p>
+<p><strong>Descripción :</strong> {{ object.descripcion }}</p>
+<p><strong>Estado :</strong> {{ object.estado }}</p>
+<p><strong>Usuario asignado :</strong> {{ object.usuario }}</p>
+<input type="button" class="alignleft tsc_awb_medium tsc_awb_red tsc_flat" onclick="location.href='{% url tarea_update object.pk %}'" value="Modificar">
+<input type="button" class="alignright tsc_awb_medium tsc_awb_blue tsc_flat" onclick="location.href='{% url tarea_delete object.pk %}'" value="Borrar">
+<div style="clear: both;"></div>
 {% endblock %}
