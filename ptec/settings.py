@@ -11,7 +11,7 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-if not bool(os.environ.get('LOCAL_DEV', True)):
+if bool(os.environ.get('HEROKU', True)):
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 else:
     DATABASES = {
@@ -69,7 +69,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 
-if not bool(os.environ.get('LOCAL_DEV', False)):
+if bool(os.environ.get('HEROKU', True)):
     STATICFILES_DIRS = (
         # Put strings here, like "/home/html/static" or "C:/www/django/static".
         # Always use forward slashes, even on Windows.
@@ -116,7 +116,7 @@ ROOT_URLCONF = 'ptec.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'ptec.wsgi.application'
 
-if not bool(os.environ.get('LOCAL_DEV', True)):
+if bool(os.environ.get('HEROKU', True)):
     TEMPLATE_DIRS = (
         # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
         # Always use forward slashes, even on Windows.
