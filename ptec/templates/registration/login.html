@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors %}
+<div class="validation">{{ form.errors }}</div>
+{% endif %}
+<form action="." method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Entrar" class="tsc_awb_medium tsc_awb_red tsc_flat" /><input type="button" class="alignright tsc_awb_medium tsc_awb_blue tsc_flat" onclick="location.href='{% url registration_register %}'" value="Registrarse">
+<div style="clear: both;"></div>
+</form>
+</form>
+{% endblock %}

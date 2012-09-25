@@ -23,12 +23,18 @@
       <div id="main">
         <div id="menu">
           <ul>
+	    {% if user.is_authenticated %}
+            <li><a href="{% url logout %}">Salir</a></li>
             <li><a href="{% url tarea_create %}">Crear</a></li>
             <li><a href="{% url tarea_list %}">Listado</a></li>
+	    {% endif %}
           </ul>
         </div>
 	
         <div id="text">
+	  {% if user.is_authenticated %}
+	  <div class="info">Autenticado como {{ user.username }}</div>
+	  {% endif %}
 	  {% block navigation %}
 	  {% endblock %}
 	  {% block content %}

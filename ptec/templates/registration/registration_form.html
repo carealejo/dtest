@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors %}
+<div class="validation">{{ form.errors }}</div>
+{% endif %}
+<h1>Nuevo usuario</h1>
+<form action="." method="post">
+  {% csrf_token %}
+  <p>{{ form.username.label_tag }}: {{ form.username }}</p>
+  <p>{{ form.email.label_tag }}: {{ form.email }}</p>
+  <p>{{ form.password1.label_tag }}: {{ form.password1 }}</p>
+  <p>{{ form.password2.label_tag }}: {{ form.password2 }}</p>
+  <input type="submit" value="Registrar" class="tsc_awb_medium tsc_awb_red tsc_flat" />
+{% endblock %}

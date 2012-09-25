@@ -13,7 +13,7 @@ Estado_Tareas = (
     )
 
 class Tarea(models.Model):
-    nombre = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=200, verbose_name='Nombre')
     fechaini = models.DateTimeField('Fecha de inicio')
     fechafin = models.DateTimeField('Fecha de finalización')
     descripcion = models.CharField(max_length=500)

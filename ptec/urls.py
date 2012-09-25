@@ -10,6 +10,15 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        
                        url(
+        regex =  '^accounts/logout/$',
+        view = 'django.contrib.auth.views.logout',
+        name = 'logout',
+        kwargs={'next_page': '/accounts/login'}
+        ),
+                       
+                       (r'^accounts/', include('registration.backends.simple.urls')),
+                       
+                       url(
         regex = '^list/$',
         view =  TareaListView.as_view(),
         name = 'tarea_list'

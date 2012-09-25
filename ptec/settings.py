@@ -11,7 +11,10 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-if not bool(os.environ.get('LOCAL', True)):
+
+LOCAL_DEV=True
+
+if not LOCAL_DEV:
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 else:
     DATABASES = {
@@ -124,6 +127,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'tareas',
+    'registration',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -154,3 +158,5 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_REDIRECT_URL = "/list"
