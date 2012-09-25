@@ -17,6 +17,10 @@ class Tarea(models.Model):
     descripcion = models.CharField(max_length=500)
     estado = models.CharField(max_length=4,choices=Estado_Tareas)
     usuario = models.ForeignKey(User)
+
+    def get_absolute_url(self):
+        return '/tareas/detalle/'+str(self.pk)
+    
     def __unicode__(self):
         return self.nombre
 

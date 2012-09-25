@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Tareas :: detalle</h1>
+<h2>{{ object.nombre }}</h2>
+<p>Fecha de inicio : {{ object.fechaini }}</p>
+<p>Fecha de finalización : {{ object.fechafin }}</p>
+<p>Descripción : {{ object.descripcion }}</p>
+<p>Estado : {{ object.estado }}</p>
+<p>Usuario asignado : {{ object.usuario }}</p>
+{% endblock %}
