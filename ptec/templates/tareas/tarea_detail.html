@@ -7,4 +7,9 @@
 <p>Descripción : {{ object.descripcion }}</p>
 <p>Estado : {{ object.estado }}</p>
 <p>Usuario asignado : {{ object.usuario }}</p>
+
+<a href={% url tarea_delete object.pk %}>Eliminar</a>
+
+
+
 {% endblock %}

@@ -12,6 +12,7 @@ class LoginRequiredMixin(object):
 
 class TareaMixin(LoginRequiredMixin):
     model = Tarea
+
     def get_success_url(self):
         return reverse('tarea_list')
 

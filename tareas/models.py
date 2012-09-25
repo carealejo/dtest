@@ -7,9 +7,9 @@ from django.core.urlresolvers import reverse
 from django import forms
 
 Estado_Tareas = (
-    ('Fin', 'Finalizada'),
-    ('Proc', 'En proceso'),
-    ('Nini', 'No iniciada'),
+    ('Finalizada', 'Finalizada'),
+    ('En proceso', 'En proceso'),
+    ('No iniciada', 'No iniciada'),
     )
 
 class Tarea(models.Model):
@@ -17,7 +17,7 @@ class Tarea(models.Model):
     fechaini = models.DateTimeField('Fecha de inicio')
     fechafin = models.DateTimeField('Fecha de finalización')
     descripcion = models.CharField(max_length=500)
-    estado = models.CharField(max_length=4,choices=Estado_Tareas)
+    estado = models.CharField(max_length=11,choices=Estado_Tareas)
     usuario = models.ForeignKey(User)
 
     def get_absolute_url(self):
