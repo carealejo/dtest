@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import *
+from django.views.generic.simple import redirect_to
+
 from tareas.views import *
 
 # Uncomment the next two lines to enable the admin:
@@ -8,6 +10,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
+                       
+                       (r'^users/$', redirect_to, {'url': '/list/'}),
                        
                        url(
         regex =  '^accounts/logout/$',
